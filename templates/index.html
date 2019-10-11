@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by Vivek Kumar Singh
+	https://github.com/reachvivek
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Blogify</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="index">Blogify <span>by SUKRUTI</span></a></div>
+				<a href="#menu" style="font-size: 22px;">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index" style="font-size: 16px;">Home</a></li>
+					<li><a href="home" style="font-size: 16px;">Feeds</a></li>
+					<li><a href="about" style="font-size: 16px;">About</a></li>
+					{% if current_user.is_authenticated %}
+					<li><a class="nav-item nav-link" href="{{ url_for('new_post') }}">New Post</a></li>
+					<li><a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a></li>
+					<li><a class="nav-item nav-link" href="{{ url_for('logout') }}">Sign Out</a></li>
+					{% else %}
+					<li><a href="login" style="font-size: 16px;">Sign In</a></li>
+					<li><a href="register" style="font-size: 16px;">Sign Up</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section class="banner full">
+				<article>
+					<img src="static/images/slide01.jpg" alt="Loading..." />
+					<div class="inner">
+						<header>
+							<h2>Welcome to Blogify</h2>
+							<p></p>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="static/images/slide02.jpg" alt="" />
+					<div class="inner">
+						<header>
+							<p style="font-size: 25px;">Here's what's trending now...</p>
+							<a id="posts" class="btn btn-medium btn-blue btn-radius" href="home">Go To Posts</a>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="static/images/slide03.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							{% if current_user.is_authenticated %}
+							<p style="font-size: 25px;">Hi, What's on your mind?</p>
+							<a id="loginbutton" class="btn btn-medium btn-blue btn-radius" href="http://127.0.0.1:5000/post/new">New Post</a>
+  						<a id="signupbutton" class="btn btn-medium btn-green btn-radius" href="register">About</a>
+							{% else %}
+							<p style="font-size: 25px;">Register and get started...</p>
+							<a id="loginbutton" class="btn btn-medium btn-blue btn-radius" href="login">Sign In</a>
+  						<a id="signupbutton" class="btn btn-medium btn-green btn-radius" href="register">Sign Up</a>
+							{% endif %}
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="static/images/slide04.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<h2 style="font-size: 40px;">A responsive blogging web-app made by</h2>
+							<p></p>
+							<h2><a href="https://github.com/SukrutiRamesh">Sukruti Ramesh</a></h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="static/images/slide05.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p style="font-size: 25px;">Made using Flask</p>
+							<h2 style="font-size: 60px;">A Python Microframework</h2>
+						</header>
+					</div>
+				</article>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style2">
+				<div class="inner">
+					<div class="grid-style">
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="static/images/pic02.jpg" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>10 Tips for starting a kickass travel blog</p>
+										<h2>Hi, I'm Sukruti!</h2>
+									</header>
+									<p> My mission is to help other people travel better for less by producing content that is more comprehensive than any other website out there. It’s been almost three years since I started my college. I can barely believe I made it so far... When have I ever committed to anything that long?</p>
+									<footer class="align-center">
+										<a href="https://youngadventuress.com/2015/02/how-to-start-a-blog.html" class="button alt">Read More</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="static/images/pic03.jpg" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>How to Write a Blog for Your Photography </p>
+										<h2>Why Photographers Should Blog?</h2>
+									</header>
+									<p> Do you know the origin of the word ‘Photography’? It was created from the Greek root words “photo”, which means light, and “graph”, which means writing. As a photographer, you “write with light” on a daily basis to create stunning images. The question is: can you strike people just as strongly with your words?</p>
+									<footer class="align-center">
+										<a href="https://www.wix.com/blog/photography/2017/05/29/write-blog-photography-website/" class="button alt">Read More</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p style="font-size: 25px;">These are some of the places I've been to so far...</p>
+						<h2>Let's check them out!</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper style2">
+				<div class="inner">
+					<header class="align-center">
+					</header>
+					<div class="gallery">
+						<div>
+							<div class="image fit">
+								<a href="#"><img src="static/images/munnar.jpg" alt="" /></a>
+								<p style="text-align:center; font-size:26px">Munnar, Kerala</p>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="#"><img src="static/images/wonderla.jpg" alt="" /></a>
+								<p style="text-align:center; font-size:26px">Wonderla, Cochin</p>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="#"><img src="static/images/marina.jpg" alt="" /></a>
+								<p style="text-align:center; font-size:26px">Marina Beach, Chennai</p>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="#"><img src="static/images/Kapaleeswarar.jpg" alt="" /></a>
+								<p style="text-align:center; font-size:26px">Kapaleeswarar Temple, Chennai</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/sukruti89/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="mailto:blogifybysukruti@example.com?Subject=Hello%20again" target="_top" type="Email" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; 2019 Sukruti Ramesh. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="static/assets/js/jquery.min.js"></script>
+			<script src="static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="static/assets/js/skel.min.js"></script>
+			<script src="static/assets/js/util.js"></script>
+			<script src="static/assets/js/main.js"></script>
+
+	</body>
+</html>
